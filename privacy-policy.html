@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Privacidade — PortalWithLasers / FALA TU</title>
+  <style>
+    :root {
+      --bg: #f8f9fa;
+      --surface: #ffffff;
+      --surface2: #f1f3f5;
+      --border: #dee2e6;
+      --text: #212529;
+      --text-dim: #adb5bd;
+      --text-muted: #6c757d;
+      --accent: #28a745;
+      --accent-dark: #1e7e34;
+      --accent-hover: #218838;
+      --accent-light: #e8f5ee;
+      --accent-border: #c3e6cb;
+      --warn-bg: #fff8e1;
+      --warn-border: #ffe082;
+      --warn-text: #5d4037;
+      --warn-strong: #3e2723;
+      --info-bg: #e8f0fb;
+      --info-border: #c5d3f5;
+      --info-text: #3c5fb0;
+      --danger: #c82333;
+      --disclaimer-bg: #fff3cd;
+      --disclaimer-border: #ffeeba;
+      --disclaimer-text: #856404;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+
+    /* ── Header ── */
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 28px 24px 20px;
+      margin-bottom: 28px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--accent);
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(37,82,67,0.08);
+    }
+
+    .header-logo {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--accent-dark);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .header-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+      letter-spacing: 0.2px;
+    }
+
+    .header-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+      margin-top: 6px;
+    }
+
+    .header-date {
+      font-size: 11px;
+      color: var(--text-dim);
+      margin-top: 2px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 10px;
+      font-size: 10px;
+      font-weight: 700;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      margin-top: 4px;
+    }
+    .badge-green { background: var(--accent-light); color: var(--accent-dark); border: 1px solid var(--accent-border); }
+    .badge-orange { background: #fff3e0; color: #e65100; border: 1px solid #ffcc80; }
+    .badge-blue { background: var(--info-bg); color: var(--info-text); border: 1px solid var(--info-border); }
+
+    /* ── Sections ── */
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 22px 24px;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-title .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    /* ── Text blocks ── */
+    p {
+      margin-bottom: 10px;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    strong { color: var(--text); font-weight: 600; }
+
+    a { color: var(--accent-dark); text-decoration: underline; }
+    a:hover { color: var(--accent-hover); }
+
+    /* ── Call-outs ── */
+    .callout {
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-bottom: 14px;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+    .callout:last-child { margin-bottom: 0; }
+
+    .callout-green {
+      background: var(--accent-light);
+      border: 1px solid var(--accent-border);
+      color: #155724;
+    }
+
+    .callout-warn {
+      background: var(--warn-bg);
+      border: 1px solid var(--warn-border);
+      color: var(--warn-text);
+    }
+    .callout-warn strong { color: var(--warn-strong); }
+
+    .callout-blue {
+      background: var(--info-bg);
+      border: 1px solid var(--info-border);
+      color: var(--info-text);
+    }
+    .callout-blue strong { color: #2a3f7a; }
+
+    .callout-disclaimer {
+      background: var(--disclaimer-bg);
+      border: 1px solid var(--disclaimer-border);
+      color: var(--disclaimer-text);
+    }
+    .callout-disclaimer strong { color: #664d03; }
+
+    /* ── Table de dados ── */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      margin: 12px 0;
+    }
+
+    .data-table th {
+      padding: 8px 12px;
+      text-align: left;
+      background: var(--surface2);
+      color: var(--text-muted);
+      font-weight: 700;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .data-table td {
+      padding: 9px 12px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:hover td { background: var(--surface2); }
+
+    .data-table td.label {
+      font-weight: 600;
+      color: var(--accent-dark);
+      white-space: nowrap;
+      width: 1%;
+    }
+
+    .data-table td.none {
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* ── List de não-faz ── */
+    .not-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .not-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 9px 12px;
+      background: var(--accent-light);
+      border: 1px solid var(--accent-border);
+      border-radius: 6px;
+      font-size: 13px;
+      color: #155724;
+      line-height: 1.5;
+    }
+
+    .not-list li .icon {
+      font-size: 14px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── Contato ── */
+    .contact-block {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .contact-block .contact-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      margin-top: 32px;
+      padding: 16px;
+      font-size: 11px;
+      color: var(--text-dim);
+      border-top: 1px solid var(--border);
+      line-height: 1.8;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .container { padding: 16px 12px 40px; }
+      .section { padding: 16px; }
+      .data-table th, .data-table td { padding: 7px 8px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+      <div class="header-logo">PortalWithLasers · FALA TU</div>
+      <div class="header-sub">Extensão para o Portal da Defensoria Pública do Estado do Rio Grande do Sul</div>
+      <div class="header-title">Política de Privacidade</div>
+      <div class="header-date">Última atualização: 02 de março de 2026</div>
+      <div style="display:flex; gap:6px; flex-wrap:wrap; justify-content:center; margin-top:6px;">
+        <span class="badge badge-orange">Uso experimental</span>
+        <span class="badge badge-green">Não comercial</span>
+        <span class="badge badge-blue">Exclusivo DPERS</span>
+      </div>
+    </div>
+
+    <!-- 1. INTRODUÇÃO -->
+    <div class="section">
+      <div class="section-title"><span class="num">1</span> Introdução e natureza do projeto</div>
+
+      <p>
+        O <strong>PortalWithLasers - FALA TU</strong> ("a Extensão") é uma extensão experimental para o navegador
+        Google Chrome, desenvolvida colaborativamente e cooperativamente, de forma voluntária,
+        para a <strong>Defensoria Pública do Estado do Rio Grande do Sul
+        (DPE/RS)</strong>, com finalidade exclusivamente institucional e não comercial.
+      </p>
+
+      <div class="callout callout-warn">
+        <strong>Caráter experimental (POC):</strong> A Extensão constitui uma <strong>prova de conceito</strong>,
+        destinada a explorar o uso de inteligência artificial em tarefas de reescrita jurídica e transcrição de
+        atendimentos realizados no Portal interno da DPE/RS. Funcionalidades são protótipos em constante evolução
+        e não integram os sistemas oficiais da instituição.
+      </div>
+
+      <p>
+        A Extensão opera <strong>exclusivamente</strong>:
+      </p>
+      <ul style="margin: 8px 0 10px 18px; line-height: 1.9; color: var(--text);">
+        <li>Dentro da rede interna da DPE/RS (VPN institucional);</li>
+        <li>Nos domínios internos da Defensoria Pública do RS (<code style="font-size:12px; background:var(--surface2); padding:1px 5px; border-radius:4px; color:var(--accent-dark);">*.defpub.local</code>);</li>
+        <li>Para uso de servidores, estagiários e defensores públicos vinculados à DPE/RS.</li>
+      </ul>
+
+      <p>
+        Esta Política descreve de forma transparente quais dados são tratados, como e por quê, em conformidade com a
+        <strong>Lei Geral de Proteção de Dados (Lei nº 13.709/2018 — LGPD)</strong>.
+      </p>
+    </div>
+
+    <!-- 2. DADOS TRATADOS -->
+    <div class="section">
+      <div class="section-title"><span class="num">2</span> Quais dados são tratados</div>
+
+      <p>A Extensão trata exclusivamente os dados descritos abaixo. Nenhum dado adicional é coletado.</p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Dado</th>
+            <th>Origem</th>
+            <th>Armazenamento</th>
+            <th>Transmissão</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="label">Credencial de acesso à API de IA</td>
+            <td>Inserida pelo usuário nas configurações, ou fornecida pela DPE/RS via login institucional com credencial corporativa junto ao provedor de IA</td>
+            <td>Somente no dispositivo do usuário (<code style="font-size:11px;">chrome.storage.local</code>), quando inserida manualmente. Credenciais institucionais são geridas pelo provedor conforme as políticas da DPE/RS.</td>
+            <td>Enviada ao provedor de IA para autenticação das requisições</td>
+          </tr>
+          <tr>
+            <td class="label">Textos dos campos do Portal</td>
+            <td>Digitados pelo usuário nos campos do Portal</td>
+            <td class="none">Não armazenado pela Extensão</td>
+            <td>Enviados ao provedor de IA quando o usuário aciona reescrita</td>
+          </tr>
+          <tr>
+            <td class="label">Áudios de atendimento</td>
+            <td>Gravados pelo usuário via microfone</td>
+            <td class="none">Não armazenado — processado em memória</td>
+            <td>Enviados ao provedor de IA quando o usuário aciona transcrição com IA</td>
+          </tr>
+          <tr>
+            <td class="label">Dados de uso e custo</td>
+            <td>Gerados automaticamente após cada operação</td>
+            <td>Somente no dispositivo do usuário (<code style="font-size:11px;">chrome.storage.local</code>)</td>
+            <td class="none">Não transmitido</td>
+          </tr>
+          <tr>
+            <td class="label">Cotação PTAX (USD/BRL)</td>
+            <td>API pública do Banco Central do Brasil</td>
+            <td>Somente no dispositivo do usuário, renovada a cada 12h</td>
+            <td class="none">Nenhum dado pessoal enviado ao BCB</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-green" style="margin-top:14px;">
+        <strong>Importante:</strong> Textos e áudios <strong>não são armazenados</strong> pela Extensão após o
+        processamento. A Extensão não possui servidor próprio, banco de dados ou qualquer infraestrutura de
+        armazenamento. Tudo que fica armazenado reside exclusivamente no dispositivo do próprio usuário.
+      </div>
+    </div>
+
+    <!-- 3. O QUE A EXTENSÃO NÃO FAZ -->
+    <div class="section">
+      <div class="section-title"><span class="num">3</span> O que a Extensão não faz</div>
+
+      <ul class="not-list">
+        <li><span class="icon">✗</span> <div><strong>Não coleta dados para a DPE/RS.</strong> Nenhum texto, áudio ou dado de uso é transmitido a servidores da Defensoria.</div></li>
+        <li><span class="icon">✗</span> <div><strong>Não possui servidor próprio.</strong> A Extensão é inteiramente client-side — não há backend, banco de dados ou infraestrutura mantida pelos desenvolvedores.</div></li>
+        <li><span class="icon">✗</span> <div><strong>Não usa dados para treinar modelos de IA.</strong> Nenhum dado fornecido pelo usuário é utilizado para treinamento, melhoria ou aperfeiçoamento de modelos pela DPE/RS ou pelo desenvolvedor.</div></li>
+        <li><span class="icon">✗</span> <div><strong>Não funciona fora da rede da DPE/RS.</strong> Os scripts só são injetados nos domínios internos da Defensoria (<code style="font-size:11px;">*.defpub.local</code>), acessíveis apenas via VPN institucional.</div></li>
+        <li><span class="icon">✗</span> <div><strong>Não tem uso comercial.</strong> Desenvolvida e distribuída sem fins lucrativos, para uso exclusivamente interno da DPE/RS.</div></li>
+        <li><span class="icon">✗</span> <div><strong>Não coleta dados de navegação ou histórico.</strong> A Extensão não monitora o comportamento do usuário fora dos campos específicos do Portal nos quais o usuário aciona explicitamente a ferramenta.</div></li>
+        <li><span class="icon">✗</span> <div><strong>Não compartilha dados com terceiros além do provedor de IA em uso.</strong> A única transmissão externa ocorre para a API do provedor de IA configurado (ex.: OpenAI, Azure, Serpro ou outro mantido pela DPE/RS), exclusivamente quando o usuário aciona uma funcionalidade de reescrita ou transcrição.</div></li>
+      </ul>
+    </div>
+
+    <!-- 4. TRANSMISSÃO AO PROVEDOR DE IA -->
+    <div class="section">
+      <div class="section-title"><span class="num">4</span> Transmissão de dados ao provedor de IA</div>
+
+      <p>
+        A única transmissão de dados a terceiros ocorre quando o usuário aciona explicitamente uma função de
+        <strong>reescrita de texto</strong> ou <strong>transcrição de áudio</strong>, momento em que o conteúdo
+        é enviado via HTTPS ao <strong>provedor de IA configurado</strong> para processamento.
+      </p>
+
+      <p>
+        O provedor de IA em uso pode variar conforme a configuração da Extensão ou a política institucional
+        da DPE/RS. Atualmente, a Extensão suporta a <strong>OpenAI, LLC</strong> como provedor padrão, podendo
+        futuramente integrar outros provedores com os quais a DPE/RS mantenha contrato corporativo, tais como
+        <strong>Microsoft Azure OpenAI Service</strong>, <strong>Serpro</strong> ou outros provedores de IA
+        homologados pela instituição.
+      </p>
+
+      <div class="callout callout-blue">
+        <strong>Políticas dos provedores:</strong> O tratamento realizado por cada provedor é regido por seus
+        próprios termos e política de privacidade. Recomenda-se consultar as políticas do provedor em uso:<br><br>
+        OpenAI: <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">openai.com/policies/privacy-policy</a>
+        · <a href="https://openai.com/policies/usage-policies" target="_blank" rel="noopener">openai.com/policies/usage-policies</a><br>
+        Azure OpenAI: <a href="https://azure.microsoft.com/pt-br/explore/trusted-cloud/privacy" target="_blank" rel="noopener">azure.microsoft.com/pt-br/explore/trusted-cloud/privacy</a>
+      </div>
+
+      <div class="callout callout-warn" style="margin-top:12px;">
+        <strong>Atenção — processos sob segredo de justiça:</strong> Recomenda-se que o usuário avalie a necessidade
+        de anonimizar dados que identifiquem partes, testemunhas ou terceiros antes de submeter o conteúdo ao
+        processamento, especialmente em processos que tramitem sob segredo de justiça. A responsabilidade pela
+        adequação do conteúdo submetido é do usuário.
+      </div>
+    </div>
+
+    <!-- 5. BASE LEGAL -->
+    <div class="section">
+      <div class="section-title"><span class="num">5</span> Base legal do tratamento (LGPD)</div>
+
+      <p>O tratamento de dados realizado pela Extensão fundamenta-se em:</p>
+
+      <table class="data-table" style="margin-top:10px;">
+        <thead>
+          <tr>
+            <th>Base Legal</th>
+            <th>Fundamento</th>
+            <th>Aplicação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="label">Execução de políticas públicas</td>
+            <td>Art. 7º, III, LGPD</td>
+            <td>A Extensão é ferramenta institucional da DPE/RS para aprimorar a prestação do serviço público de assistência jurídica gratuita.</td>
+          </tr>
+          <tr>
+            <td class="label">Legítimo interesse</td>
+            <td>Art. 7º, IX, LGPD</td>
+            <td>Registro local de uso e custo, com finalidade de transparência e auditoria interna, sem impacto sobre os direitos dos titulares.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 6. SEGURANÇA -->
+    <div class="section">
+      <div class="section-title"><span class="num">6</span> Segurança</div>
+
+      <p>As seguintes medidas de segurança são adotadas:</p>
+
+      <ul style="margin: 8px 0 10px 18px; line-height: 2; color: var(--text);">
+        <li>Toda comunicação com o provedor de IA e com a API do Banco Central é realizada via <strong>HTTPS</strong>.</li>
+        <li>Credenciais de API inseridas manualmente pelo usuário são armazenadas no <code style="font-size:12px; background:var(--surface2); padding:1px 5px; border-radius:4px;">chrome.storage.local</code>, acessível apenas pela própria Extensão no dispositivo do usuário, não exposta a outras extensões ou páginas. Credenciais institucionais fornecidas pela DPE/RS seguem as políticas de segurança do provedor corporativo contratado.</li>
+        <li>Nenhum dado é transmitido sem criptografia.</li>
+        <li>Nenhum dado de texto ou áudio é retido após o processamento.</li>
+      </ul>
+    </div>
+
+    <!-- 7. RETENÇÃO -->
+    <div class="section">
+      <div class="section-title"><span class="num">7</span> Retenção de dados</div>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Dado</th>
+            <th>Onde fica</th>
+            <th>Por quanto tempo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="label">Credencial de API (quando inserida manualmente)</td>
+            <td>Dispositivo do usuário</td>
+            <td>Até o usuário remover nas configurações</td>
+          </tr>
+          <tr>
+            <td class="label">Textos processados</td>
+            <td class="none">Não armazenado</td>
+            <td class="none">Não aplicável</td>
+          </tr>
+          <tr>
+            <td class="label">Áudios gravados</td>
+            <td class="none">Não armazenado</td>
+            <td class="none">Não aplicável</td>
+          </tr>
+          <tr>
+            <td class="label">Dados de uso e custo</td>
+            <td>Dispositivo do usuário</td>
+            <td>Até o usuário limpar o armazenamento da Extensão (botão disponível nas configurações)</td>
+          </tr>
+          <tr>
+            <td class="label">Cotação PTAX</td>
+            <td>Dispositivo do usuário</td>
+            <td>Renovada automaticamente a cada 12 horas</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 8. DIREITOS DOS TITULARES -->
+    <div class="section">
+      <div class="section-title"><span class="num">8</span> Direitos dos titulares (LGPD)</div>
+
+      <p>
+        Em conformidade com os arts. 17 a 22 da LGPD, os titulares têm direito a acesso, retificação, exclusão,
+        portabilidade e revogação de consentimento sobre seus dados pessoais.
+      </p>
+
+      <div class="callout callout-green">
+        Como os dados pessoais tratados são armazenados exclusivamente no dispositivo do próprio usuário,
+        o exercício desses direitos é realizado diretamente pelo usuário, através das configurações da
+        Extensão (aba "Uso" → "Limpar Dados de Uso"; aba "Token" → remoção da chave) ou do gerenciador
+        de armazenamento do navegador Chrome.
+      </div>
+
+      <p style="margin-top: 12px;">
+        Para dúvidas ou solicitações adicionais, o usuário pode contatar o responsável pelo projeto
+        (ver seção 10).
+      </p>
+    </div>
+
+    <!-- 9. ALTERAÇÕES -->
+    <div class="section">
+      <div class="section-title"><span class="num">9</span> Alterações a esta Política</div>
+
+      <p>
+        Esta Política pode ser atualizada para refletir mudanças na Extensão ou na legislação aplicável.
+        A data de última atualização será sempre indicada no cabeçalho. Alterações relevantes serão
+        comunicadas aos usuários institucionais pelos grupos de desenvolvimento da POC e, eventualmente, por canais internos da DPE/RS.
+      </p>
+    </div>
+
+    <!-- 10. CONTATO E RESPONSÁVEL -->
+    <div class="section">
+      <div class="section-title"><span class="num">10</span> Responsável e contato</div>
+
+      <div class="contact-block">
+        <div class="contact-label">Desenvolvedor responsável</div>
+        <strong>Felipe Drummond</strong> — Defensor Público / DPE/RS<br>
+        <a href="mailto:felipe-drummond@defensoria.rs.def.br">felipe-drummond@defensoria.rs.def.br</a>
+      </div>
+
+      <!-- <div class="contact-block" style="margin-top:10px;">
+        <div class="contact-label">Controlador dos dados (LGPD, art. 5º, VI)</div>
+        <strong>Defensoria Pública do Estado do Rio Grande do Sul — DPE/RS</strong><br>
+        Rua Sete de Setembro, 666 — Centro Histórico — Porto Alegre/RS
+      </div> -->
+
+      <div class="callout callout-disclaimer" style="margin-top:14px;">
+        <strong>Isenção de responsabilidade:</strong> A DTI (Diretoria de Tecnologia da Informação) e o
+        desenvolvedor não se responsabilizam pelo uso desta Extensão, nem oferecem suporte técnico oficial.
+        A instalação e uso são voluntários, experimentais e realizados por conta e risco do usuário. Esta é uma
+        ferramenta <strong>não oficial</strong>, desenvolvida de forma independente no âmbito da política
+        institucional de fomento à inovação no serviço público.
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <strong>PortalWithLasers - FALA TU</strong> · Extensão experimental para o Portal da DPE/RS<br>
+      Política de Privacidade · Última atualização: 02 de março de 2026<br>
+      <span>Em conformidade com a Lei nº 13.709/2018 (LGPD)</span>
+    </div>
+
+  </div><!-- /.container -->
+</body>
+</html>
