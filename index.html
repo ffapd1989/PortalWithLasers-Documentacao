@@ -34,12 +34,47 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      font-family: Arial,Helvetica,sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
       font-size: 14px;
     }
+
+    /* ── Lang switcher ── */
+    .lang-switcher {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 0 0;
+    }
+
+    .lang-btn {
+      padding: 6px 18px;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 20px;
+      border: 2px solid var(--border);
+      background: var(--surface);
+      color: var(--text-muted);
+      cursor: pointer;
+      letter-spacing: 0.3px;
+      transition: all 0.15s;
+    }
+
+    .lang-btn.active {
+      border-color: var(--accent);
+      background: var(--accent-light);
+      color: var(--accent-dark);
+    }
+
+    .lang-btn:hover:not(.active) {
+      border-color: var(--accent-dark);
+      color: var(--accent-dark);
+    }
+
+    .lang-section { display: none; }
+    .lang-section.active { display: block; }
 
     /* ── Layout ── */
     .container {
@@ -297,6 +332,14 @@
       line-height: 1.8;
     }
 
+    code {
+      font-size: 11px;
+      background: var(--surface2);
+      padding: 1px 5px;
+      border-radius: 4px;
+      color: var(--accent-dark);
+    }
+
     /* ── Responsive ── */
     @media (max-width: 600px) {
       .container { padding: 16px 12px 40px; }
@@ -308,307 +351,674 @@
 <body>
   <div class="container">
 
-    <!-- HEADER -->
-    <div class="header">
-      <div class="header-logo">PortalWithLasers · FALA TU</div>
-      <div class="header-sub">Extensão para o Portal da Defensoria Pública do Estado do Rio Grande do Sul</div>
-      <div class="header-title">Política de Privacidade</div>
-      <div class="header-date">Última atualização: 02 de março de 2026</div>
-      <div style="display:flex; gap:6px; flex-wrap:wrap; justify-content:center; margin-top:6px;">
-        <span class="badge badge-orange">Uso experimental</span>
-        <span class="badge badge-green">Não comercial</span>
-        <span class="badge badge-blue">Exclusivo DPERS</span>
-      </div>
+    <!-- LANGUAGE SWITCHER -->
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="switchLang('pt')">🇧🇷 Português</button>
+      <button class="lang-btn" onclick="switchLang('en')">🇺🇸 English</button>
     </div>
 
-    <!-- 1. INTRODUÇÃO -->
-    <div class="section">
-      <div class="section-title"><span class="num">1</span> Introdução e natureza do projeto</div>
+    <!-- ══════════════════════════════════════════ -->
+    <!--  PORTUGUESE VERSION                        -->
+    <!-- ══════════════════════════════════════════ -->
+    <div id="lang-pt" class="lang-section active">
 
-      <p>
-        O <strong>PortalWithLasers - FALA TU</strong> ("a Extensão") é uma extensão experimental para o navegador
-        Google Chrome, desenvolvida colaborativamente e cooperativamente, de forma voluntária,
-        para a <strong>Defensoria Pública do Estado do Rio Grande do Sul
-        (DPE/RS)</strong>, com finalidade exclusivamente institucional e não comercial.
-      </p>
-
-      <div class="callout callout-warn">
-        <strong>Caráter experimental (POC):</strong> A Extensão constitui uma <strong>prova de conceito</strong>,
-        destinada a explorar o uso de inteligência artificial em tarefas de reescrita jurídica e transcrição de
-        atendimentos realizados no Portal interno da DPE/RS. Funcionalidades são protótipos em constante evolução
-        e não integram os sistemas oficiais da instituição.
+      <!-- HEADER -->
+      <div class="header" style="margin-top:20px;">
+        <div class="header-logo">PortalWithLasers · FALA TU</div>
+        <div class="header-sub">Extensão para o Portal da Defensoria Pública do Estado do Rio Grande do Sul</div>
+        <div class="header-title">Política de Privacidade</div>
+        <div class="header-date">Última atualização: 09 de abril de 2026</div>
+        <div style="display:flex; gap:6px; flex-wrap:wrap; justify-content:center; margin-top:6px;">
+          <span class="badge badge-orange">Uso experimental</span>
+          <span class="badge badge-green">Não comercial</span>
+          <span class="badge badge-blue">Exclusivo DPERS</span>
+        </div>
       </div>
 
-      <p>
-        A Extensão opera <strong>exclusivamente</strong>:
-      </p>
-      <ul style="margin: 8px 0 10px 18px; line-height: 1.9; color: var(--text);">
-        <li>Dentro da rede interna da DPE/RS (VPN institucional);</li>
-        <li>Nos domínios internos da Defensoria Pública do RS (<code style="font-size:12px; background:var(--surface2); padding:1px 5px; border-radius:4px; color:var(--accent-dark);">*.defpub.local</code>);</li>
-        <li>Para uso de servidores, estagiários e defensores públicos vinculados à DPE/RS.</li>
-      </ul>
+      <!-- 1. INTRODUÇÃO -->
+      <div class="section">
+        <div class="section-title"><span class="num">1</span> Introdução e natureza do projeto</div>
 
-      <p>
-        Esta Política descreve de forma transparente quais dados são tratados, como e por quê, em conformidade com a
-        <strong>Lei Geral de Proteção de Dados (Lei nº 13.709/2018 — LGPD)</strong>.
-      </p>
-    </div>
+        <p>
+          O <strong>PortalWithLasers - FALA TU</strong> ("a Extensão") é uma extensão experimental para o navegador
+          Google Chrome, desenvolvida colaborativamente e voluntariamente para a
+          <strong>Defensoria Pública do Estado do Rio Grande do Sul (DPE/RS)</strong>,
+          com finalidade exclusivamente institucional e não comercial.
+        </p>
 
-    <!-- 2. DADOS TRATADOS -->
-    <div class="section">
-      <div class="section-title"><span class="num">2</span> Quais dados são tratados</div>
+        <div class="callout callout-warn">
+          <strong>Caráter experimental (POC):</strong> A Extensão constitui uma <strong>prova de conceito</strong>,
+          destinada a explorar o uso de inteligência artificial em tarefas de reescrita jurídica e transcrição de
+          atendimentos realizados no Portal interno da DPE/RS. Funcionalidades são protótipos em constante evolução
+          e não integram os sistemas oficiais da instituição.
+        </div>
 
-      <p>A Extensão trata exclusivamente os dados descritos abaixo. Nenhum dado adicional é coletado.</p>
+        <p>A Extensão opera <strong>exclusivamente</strong>:</p>
+        <ul style="margin: 8px 0 10px 18px; line-height: 1.9; color: var(--text);">
+          <li>Dentro da rede interna da DPE/RS (VPN institucional);</li>
+          <li>Nos domínios internos da Defensoria Pública do RS (<code>*.defpub.local</code>);</li>
+          <li>Para uso de servidores, estagiários e defensores públicos vinculados à DPE/RS.</li>
+        </ul>
 
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>Dado</th>
-            <th>Origem</th>
-            <th>Armazenamento</th>
-            <th>Transmissão</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="label">Credencial de acesso à API de IA</td>
-            <td>Inserida pelo usuário nas configurações, ou fornecida pela DPE/RS via login institucional com credencial corporativa junto ao provedor de IA</td>
-            <td>Somente no dispositivo do usuário (<code style="font-size:11px;">chrome.storage.local</code>), quando inserida manualmente. Credenciais institucionais são geridas pelo provedor conforme as políticas da DPE/RS.</td>
-            <td>Enviada ao provedor de IA para autenticação das requisições</td>
-          </tr>
-          <tr>
-            <td class="label">Textos dos campos do Portal</td>
-            <td>Digitados pelo usuário nos campos do Portal</td>
-            <td class="none">Não armazenado pela Extensão</td>
-            <td>Enviados ao provedor de IA quando o usuário aciona reescrita</td>
-          </tr>
-          <tr>
-            <td class="label">Áudios de atendimento</td>
-            <td>Gravados pelo usuário via microfone</td>
-            <td class="none">Não armazenado — processado em memória</td>
-            <td>Enviados ao provedor de IA quando o usuário aciona transcrição com IA</td>
-          </tr>
-          <tr>
-            <td class="label">Dados de uso e custo</td>
-            <td>Gerados automaticamente após cada operação</td>
-            <td>Somente no dispositivo do usuário (<code style="font-size:11px;">chrome.storage.local</code>)</td>
-            <td class="none">Não transmitido</td>
-          </tr>
-          <tr>
-            <td class="label">Cotação PTAX (USD/BRL)</td>
-            <td>API pública do Banco Central do Brasil</td>
-            <td>Somente no dispositivo do usuário, renovada a cada 12h</td>
-            <td class="none">Nenhum dado pessoal enviado ao BCB</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="callout callout-green" style="margin-top:14px;">
-        <strong>Importante:</strong> Textos e áudios <strong>não são armazenados</strong> pela Extensão após o
-        processamento. A Extensão não possui servidor próprio, banco de dados ou qualquer infraestrutura de
-        armazenamento. Tudo que fica armazenado reside exclusivamente no dispositivo do próprio usuário.
-      </div>
-    </div>
-
-    <!-- 3. O QUE A EXTENSÃO NÃO FAZ -->
-    <div class="section">
-      <div class="section-title"><span class="num">3</span> O que a Extensão não faz</div>
-
-      <ul class="not-list">
-        <li><span class="icon">✗</span> <div><strong>Não coleta dados para a DPE/RS.</strong> Nenhum texto, áudio ou dado de uso é transmitido a servidores da Defensoria.</div></li>
-        <li><span class="icon">✗</span> <div><strong>Não possui servidor próprio.</strong> A Extensão é inteiramente client-side — não há backend, banco de dados ou infraestrutura mantida pelos desenvolvedores.</div></li>
-        <li><span class="icon">✗</span> <div><strong>Não usa dados para treinar modelos de IA.</strong> Nenhum dado fornecido pelo usuário é utilizado para treinamento, melhoria ou aperfeiçoamento de modelos pela DPE/RS ou pelo desenvolvedor.</div></li>
-        <li><span class="icon">✗</span> <div><strong>Não funciona fora da rede da DPE/RS.</strong> Os scripts só são injetados nos domínios internos da Defensoria (<code style="font-size:11px;">*.defpub.local</code>), acessíveis apenas via VPN institucional.</div></li>
-        <li><span class="icon">✗</span> <div><strong>Não tem uso comercial.</strong> Desenvolvida e distribuída sem fins lucrativos, para uso exclusivamente interno da DPE/RS.</div></li>
-        <li><span class="icon">✗</span> <div><strong>Não coleta dados de navegação ou histórico.</strong> A Extensão não monitora o comportamento do usuário fora dos campos específicos do Portal nos quais o usuário aciona explicitamente a ferramenta.</div></li>
-        <li><span class="icon">✗</span> <div><strong>Não compartilha dados com terceiros além do provedor de IA em uso.</strong> A única transmissão externa ocorre para a API do provedor de IA configurado (ex.: OpenAI, Azure, Serpro ou outro mantido pela DPE/RS), exclusivamente quando o usuário aciona uma funcionalidade de reescrita ou transcrição.</div></li>
-      </ul>
-    </div>
-
-    <!-- 4. TRANSMISSÃO AO PROVEDOR DE IA -->
-    <div class="section">
-      <div class="section-title"><span class="num">4</span> Transmissão de dados ao provedor de IA</div>
-
-      <p>
-        A única transmissão de dados a terceiros ocorre quando o usuário aciona explicitamente uma função de
-        <strong>reescrita de texto</strong> ou <strong>transcrição de áudio</strong>, momento em que o conteúdo
-        é enviado via HTTPS ao <strong>provedor de IA configurado</strong> para processamento.
-      </p>
-
-      <p>
-        O provedor de IA em uso pode variar conforme a configuração da Extensão ou a política institucional
-        da DPE/RS. Atualmente, a Extensão suporta a <strong>OpenAI, LLC</strong> como provedor padrão, podendo
-        futuramente integrar outros provedores com os quais a DPE/RS mantenha contrato corporativo, tais como
-        <strong>Microsoft Azure OpenAI Service</strong>, <strong>Serpro</strong> ou outros provedores de IA
-        homologados pela instituição.
-      </p>
-
-      <div class="callout callout-blue">
-        <strong>Políticas dos provedores:</strong> O tratamento realizado por cada provedor é regido por seus
-        próprios termos e política de privacidade. Recomenda-se consultar as políticas do provedor em uso:<br><br>
-        OpenAI: <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">openai.com/policies/privacy-policy</a>
-        · <a href="https://openai.com/policies/usage-policies" target="_blank" rel="noopener">openai.com/policies/usage-policies</a><br>
-        Azure OpenAI: <a href="https://azure.microsoft.com/pt-br/explore/trusted-cloud/privacy" target="_blank" rel="noopener">azure.microsoft.com/pt-br/explore/trusted-cloud/privacy</a>
+        <p>
+          Esta Política descreve de forma transparente quais dados são tratados, como e por quê, em conformidade com a
+          <strong>Lei Geral de Proteção de Dados (Lei nº 13.709/2018 — LGPD)</strong>.
+        </p>
       </div>
 
-      <div class="callout callout-warn" style="margin-top:12px;">
-        <strong>Atenção — processos sob segredo de justiça:</strong> Recomenda-se que o usuário avalie a necessidade
-        de anonimizar dados que identifiquem partes, testemunhas ou terceiros antes de submeter o conteúdo ao
-        processamento, especialmente em processos que tramitem sob segredo de justiça. A responsabilidade pela
-        adequação do conteúdo submetido é do usuário.
-      </div>
-    </div>
+      <!-- 2. DADOS TRATADOS -->
+      <div class="section">
+        <div class="section-title"><span class="num">2</span> Quais dados são tratados</div>
 
-    <!-- 5. BASE LEGAL -->
-    <div class="section">
-      <div class="section-title"><span class="num">5</span> Base legal do tratamento (LGPD)</div>
+        <p>A Extensão trata exclusivamente os dados descritos abaixo. Nenhum dado adicional é coletado.</p>
 
-      <p>O tratamento de dados realizado pela Extensão fundamenta-se em:</p>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Dado</th>
+              <th>Origem</th>
+              <th>Armazenamento</th>
+              <th>Transmissão</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="label">Dados de identificação do servidor (SSO)</td>
+              <td>Lidos automaticamente do endpoint de sessão do Portal (<code>/api/auth/session</code>) quando o usuário está autenticado no Portal institucional</td>
+              <td>Nome, ID funcional e e-mail institucional são armazenados temporariamente no dispositivo do usuário (<code>chrome.storage.local</code>) sob a chave <code>falatu_portal_user</code></td>
+              <td>Enviados ao backend institucional da DPE/RS (<code>falatu.*.defpub.local</code>) exclusivamente para obtenção de um token JWT de sessão. Não são transmitidos a terceiros externos.</td>
+            </tr>
+            <tr>
+              <td class="label">Token JWT de sessão</td>
+              <td>Gerado pelo backend institucional da DPE/RS após autenticação SSO bem-sucedida</td>
+              <td>Dispositivo do usuário (<code>chrome.storage.local</code>), sob a chave <code>falatu_auth_token</code></td>
+              <td>Enviado ao backend institucional (<code>falatu.*.defpub.local</code>) como credencial de autorização nas requisições de IA. Nunca transmitido a terceiros externos.</td>
+            </tr>
+            <tr>
+              <td class="label">Chave de API (modo subsidiário)</td>
+              <td>Inserida manualmente pelo usuário nas configurações, apenas quando o modo direto OpenAI/Azure é ativado</td>
+              <td>Somente no dispositivo do usuário (<code>chrome.storage.local</code>)</td>
+              <td>Enviada diretamente ao provedor de IA configurado (OpenAI ou Azure) apenas quando o usuário opta explicitamente pelo modo direto</td>
+            </tr>
+            <tr>
+              <td class="label">Textos dos campos do Portal</td>
+              <td>Digitados pelo usuário nos campos do Portal</td>
+              <td class="none">Não armazenado pela Extensão</td>
+              <td>Enviados ao provedor de IA quando o usuário aciona reescrita. No modo padrão, trafegam pelo backend institucional (<code>falatu.*.defpub.local</code>); no modo subsidiário, são enviados diretamente ao provedor externo.</td>
+            </tr>
+            <tr>
+              <td class="label">Áudios de atendimento</td>
+              <td>Gravados pelo usuário via microfone</td>
+              <td class="none">Não armazenado — processado em memória</td>
+              <td>Enviados ao provedor de IA quando o usuário aciona transcrição com IA. O roteamento segue o mesmo critério dos textos (backend institucional ou provedor direto, conforme modo).</td>
+            </tr>
+            <tr>
+              <td class="label">Dados de uso e custo</td>
+              <td>Gerados automaticamente após cada operação</td>
+              <td>Somente no dispositivo do usuário (<code>chrome.storage.local</code>)</td>
+              <td class="none">Não transmitido</td>
+            </tr>
+            <tr>
+              <td class="label">Cotação PTAX (USD/BRL)</td>
+              <td>API pública do Banco Central do Brasil</td>
+              <td>Somente no dispositivo do usuário, renovada a cada 12h</td>
+              <td class="none">Nenhum dado pessoal enviado ao BCB</td>
+            </tr>
+          </tbody>
+        </table>
 
-      <table class="data-table" style="margin-top:10px;">
-        <thead>
-          <tr>
-            <th>Base Legal</th>
-            <th>Fundamento</th>
-            <th>Aplicação</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="label">Execução de políticas públicas</td>
-            <td>Art. 7º, III, LGPD</td>
-            <td>A Extensão é ferramenta institucional da DPE/RS para aprimorar a prestação do serviço público de assistência jurídica gratuita.</td>
-          </tr>
-          <tr>
-            <td class="label">Legítimo interesse</td>
-            <td>Art. 7º, IX, LGPD</td>
-            <td>Registro local de uso e custo, com finalidade de transparência e auditoria interna, sem impacto sobre os direitos dos titulares.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- 6. SEGURANÇA -->
-    <div class="section">
-      <div class="section-title"><span class="num">6</span> Segurança</div>
-
-      <p>As seguintes medidas de segurança são adotadas:</p>
-
-      <ul style="margin: 8px 0 10px 18px; line-height: 2; color: var(--text);">
-        <li>Toda comunicação com o provedor de IA e com a API do Banco Central é realizada via <strong>HTTPS</strong>.</li>
-        <li>Credenciais de API inseridas manualmente pelo usuário são armazenadas no <code style="font-size:12px; background:var(--surface2); padding:1px 5px; border-radius:4px;">chrome.storage.local</code>, acessível apenas pela própria Extensão no dispositivo do usuário, não exposta a outras extensões ou páginas. Credenciais institucionais fornecidas pela DPE/RS seguem as políticas de segurança do provedor corporativo contratado.</li>
-        <li>Nenhum dado é transmitido sem criptografia.</li>
-        <li>Nenhum dado de texto ou áudio é retido após o processamento.</li>
-      </ul>
-    </div>
-
-    <!-- 7. RETENÇÃO -->
-    <div class="section">
-      <div class="section-title"><span class="num">7</span> Retenção de dados</div>
-
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>Dado</th>
-            <th>Onde fica</th>
-            <th>Por quanto tempo</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="label">Credencial de API (quando inserida manualmente)</td>
-            <td>Dispositivo do usuário</td>
-            <td>Até o usuário remover nas configurações</td>
-          </tr>
-          <tr>
-            <td class="label">Textos processados</td>
-            <td class="none">Não armazenado</td>
-            <td class="none">Não aplicável</td>
-          </tr>
-          <tr>
-            <td class="label">Áudios gravados</td>
-            <td class="none">Não armazenado</td>
-            <td class="none">Não aplicável</td>
-          </tr>
-          <tr>
-            <td class="label">Dados de uso e custo</td>
-            <td>Dispositivo do usuário</td>
-            <td>Até o usuário limpar o armazenamento da Extensão (botão disponível nas configurações)</td>
-          </tr>
-          <tr>
-            <td class="label">Cotação PTAX</td>
-            <td>Dispositivo do usuário</td>
-            <td>Renovada automaticamente a cada 12 horas</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- 8. DIREITOS DOS TITULARES -->
-    <div class="section">
-      <div class="section-title"><span class="num">8</span> Direitos dos titulares (LGPD)</div>
-
-      <p>
-        Em conformidade com os arts. 17 a 22 da LGPD, os titulares têm direito a acesso, retificação, exclusão,
-        portabilidade e revogação de consentimento sobre seus dados pessoais.
-      </p>
-
-      <div class="callout callout-green">
-        Como os dados pessoais tratados são armazenados exclusivamente no dispositivo do próprio usuário,
-        o exercício desses direitos é realizado diretamente pelo usuário, através das configurações da
-        Extensão (aba "Uso" → "Limpar Dados de Uso"; aba "Token" → remoção da chave) ou do gerenciador
-        de armazenamento do navegador Chrome.
+        <div class="callout callout-green" style="margin-top:14px;">
+          <strong>Importante:</strong> Textos e áudios <strong>não são armazenados</strong> pela Extensão após o
+          processamento. O que fica armazenado no dispositivo do usuário são apenas: dados de identificação
+          (temporários), token JWT de sessão, dados de uso/custo e cotação PTAX.
+        </div>
       </div>
 
-      <p style="margin-top: 12px;">
-        Para dúvidas ou solicitações adicionais, o usuário pode contatar o responsável pelo projeto
-        (ver seção 10).
-      </p>
-    </div>
+      <!-- 3. O QUE A EXTENSÃO NÃO FAZ -->
+      <div class="section">
+        <div class="section-title"><span class="num">3</span> O que a Extensão não faz</div>
 
-    <!-- 9. ALTERAÇÕES -->
-    <div class="section">
-      <div class="section-title"><span class="num">9</span> Alterações a esta Política</div>
-
-      <p>
-        Esta Política pode ser atualizada para refletir mudanças na Extensão ou na legislação aplicável.
-        A data de última atualização será sempre indicada no cabeçalho. Alterações relevantes serão
-        comunicadas aos usuários institucionais pelos grupos de desenvolvimento da POC e, eventualmente, por canais internos da DPE/RS.
-      </p>
-    </div>
-
-    <!-- 10. CONTATO E RESPONSÁVEL -->
-    <div class="section">
-      <div class="section-title"><span class="num">10</span> Responsável e contato</div>
-
-      <div class="contact-block">
-        <div class="contact-label">Desenvolvedor responsável</div>
-        <strong>Felipe Drummond</strong> — Defensor Público / DPE/RS<br>
-        <a href="mailto:felipe-drummond@defensoria.rs.def.br">felipe-drummond@defensoria.rs.def.br</a>
+        <ul class="not-list">
+          <li><span class="icon">✗</span> <div><strong>Não coleta dados para fins comerciais ou analíticos.</strong> Nenhum texto, áudio ou dado de uso é transmitido a servidores de análise, publicidade ou terceiros não relacionados ao processamento de IA.</div></li>
+          <li><span class="icon">✗</span> <div><strong>Não usa dados para treinar modelos de IA.</strong> Nenhum dado fornecido pelo usuário é utilizado para treinamento, melhoria ou aperfeiçoamento de modelos pela DPE/RS ou pelo desenvolvedor da Extensão.</div></li>
+          <li><span class="icon">✗</span> <div><strong>Não funciona fora da rede da DPE/RS.</strong> Os scripts só são injetados nos domínios internos da Defensoria (<code>*.defpub.local</code>), acessíveis apenas via VPN institucional.</div></li>
+          <li><span class="icon">✗</span> <div><strong>Não tem uso comercial.</strong> Desenvolvida e distribuída sem fins lucrativos, para uso exclusivamente interno da DPE/RS.</div></li>
+          <li><span class="icon">✗</span> <div><strong>Não coleta dados de navegação ou histórico.</strong> A Extensão não monitora o comportamento do usuário fora dos campos específicos do Portal nos quais o usuário aciona explicitamente a ferramenta.</div></li>
+          <li><span class="icon">✗</span> <div><strong>Não transmite dados a terceiros além do provedor de IA em uso.</strong> A transmissão externa, quando ocorre, destina-se exclusivamente ao backend institucional da DPE/RS (modo padrão) ou ao provedor de IA contratado (modo subsidiário).</div></li>
+        </ul>
       </div>
 
-      <!-- <div class="contact-block" style="margin-top:10px;">
-        <div class="contact-label">Controlador dos dados (LGPD, art. 5º, VI)</div>
-        <strong>Defensoria Pública do Estado do Rio Grande do Sul — DPE/RS</strong><br>
-        Rua Sete de Setembro, 666 — Centro Histórico — Porto Alegre/RS
-      </div> -->
+      <!-- 4. TRANSMISSÃO AO PROVEDOR DE IA -->
+      <div class="section">
+        <div class="section-title"><span class="num">4</span> Transmissão de dados ao provedor de IA</div>
 
-      <div class="callout callout-disclaimer" style="margin-top:14px;">
-        <strong>Isenção de responsabilidade:</strong> A DTI (Diretoria de Tecnologia da Informação) e o
-        desenvolvedor não se responsabilizam pelo uso desta Extensão, nem oferecem suporte técnico oficial.
-        A instalação e uso são voluntários, experimentais e realizados por conta e risco do usuário. Esta é uma
-        ferramenta <strong>não oficial</strong>, desenvolvida de forma independente no âmbito da política
-        institucional de fomento à inovação no serviço público.
+        <p>
+          Quando o usuário aciona explicitamente uma função de <strong>reescrita de texto</strong> ou
+          <strong>transcrição de áudio</strong>, o conteúdo é enviado via HTTPS ao provedor de IA para processamento.
+          A Extensão opera em dois modos:
+        </p>
+
+        <div class="callout callout-green" style="margin-bottom:12px;">
+          <strong>Modo padrão — Backend institucional DPE/RS (recomendado):</strong> Neste modo, todos os dados
+          trafegam exclusivamente pelo backend institucional da DPE/RS (<code>falatu.*.defpub.local</code>),
+          que atua como proxy LiteLLM. O backend encaminha as requisições ao provedor de IA contratado pela
+          instituição e devolve o resultado à Extensão. Nenhum dado trafega diretamente entre o dispositivo
+          do usuário e a API externa do provedor de IA. A autenticação é feita via SSO institucional e token JWT.
+        </div>
+
+        <div class="callout callout-blue" style="margin-bottom:12px;">
+          <strong>Modo subsidiário — Direto ao provedor externo (opt-in):</strong> Quando configurado explicitamente
+          pelo usuário, a Extensão envia dados diretamente à API da OpenAI ou Azure OpenAI, usando chave de API
+          fornecida pelo próprio usuário. Este modo é subsidiário e requer configuração manual. O tratamento
+          realizado por cada provedor é regido por seus próprios termos e política de privacidade:<br><br>
+          OpenAI: <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">openai.com/policies/privacy-policy</a>
+          · <a href="https://openai.com/policies/usage-policies" target="_blank" rel="noopener">openai.com/policies/usage-policies</a><br>
+          Azure OpenAI: <a href="https://azure.microsoft.com/pt-br/explore/trusted-cloud/privacy" target="_blank" rel="noopener">azure.microsoft.com/pt-br/explore/trusted-cloud/privacy</a>
+        </div>
+
+        <div class="callout callout-warn">
+          <strong>Atenção — processos sob segredo de justiça:</strong> Recomenda-se que o usuário avalie a necessidade
+          de anonimizar dados que identifiquem partes, testemunhas ou terceiros antes de submeter o conteúdo ao
+          processamento, especialmente em processos que tramitem sob segredo de justiça. A responsabilidade pela
+          adequação do conteúdo submetido é do usuário.
+        </div>
       </div>
-    </div>
 
-    <!-- FOOTER -->
-    <div class="footer">
-      <strong>PortalWithLasers - FALA TU</strong> · Extensão experimental para o Portal da DPE/RS<br>
-      Política de Privacidade · Última atualização: 02 de março de 2026<br>
-      <span>Em conformidade com a Lei nº 13.709/2018 (LGPD)</span>
-    </div>
+      <!-- 5. BASE LEGAL -->
+      <div class="section">
+        <div class="section-title"><span class="num">5</span> Base legal do tratamento (LGPD)</div>
+
+        <p>O tratamento de dados realizado pela Extensão fundamenta-se em:</p>
+
+        <table class="data-table" style="margin-top:10px;">
+          <thead>
+            <tr>
+              <th>Base Legal</th>
+              <th>Fundamento</th>
+              <th>Aplicação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="label">Execução de políticas públicas</td>
+              <td>Art. 7º, III, LGPD</td>
+              <td>A Extensão é ferramenta institucional da DPE/RS para aprimorar a prestação do serviço público de assistência jurídica gratuita.</td>
+            </tr>
+            <tr>
+              <td class="label">Legítimo interesse</td>
+              <td>Art. 7º, IX, LGPD</td>
+              <td>Registro local de uso e custo, com finalidade de transparência e auditoria interna, sem impacto sobre os direitos dos titulares.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 6. SEGURANÇA -->
+      <div class="section">
+        <div class="section-title"><span class="num">6</span> Segurança</div>
+
+        <p>As seguintes medidas de segurança são adotadas:</p>
+
+        <ul style="margin: 8px 0 10px 18px; line-height: 2; color: var(--text);">
+          <li>Toda comunicação com o backend institucional, com provedores externos de IA e com a API do Banco Central é realizada via <strong>HTTPS</strong>.</li>
+          <li>No modo padrão, dados de texto e áudio nunca saem da rede interna da DPE/RS em direção à internet: o backend institucional (<code>falatu.*.defpub.local</code>) é o único destinatário externo do dispositivo do usuário.</li>
+          <li>Credenciais de API inseridas manualmente pelo usuário (modo subsidiário) são armazenadas no <code>chrome.storage.local</code>, acessível apenas pela própria Extensão no dispositivo do usuário.</li>
+          <li>O token JWT é armazenado apenas localmente e enviado somente ao backend institucional.</li>
+          <li>Nenhum dado é transmitido sem criptografia.</li>
+          <li>Nenhum dado de texto ou áudio é retido após o processamento.</li>
+        </ul>
+      </div>
+
+      <!-- 7. RETENÇÃO -->
+      <div class="section">
+        <div class="section-title"><span class="num">7</span> Retenção de dados</div>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Dado</th>
+              <th>Onde fica</th>
+              <th>Por quanto tempo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="label">Dados de identificação (SSO)</td>
+              <td>Dispositivo do usuário</td>
+              <td>Até o token JWT expirar ou o usuário limpar o armazenamento da Extensão</td>
+            </tr>
+            <tr>
+              <td class="label">Token JWT de sessão</td>
+              <td>Dispositivo do usuário</td>
+              <td>Até expirar (conforme política do backend institucional) ou o usuário deslogar</td>
+            </tr>
+            <tr>
+              <td class="label">Chave de API (modo subsidiário)</td>
+              <td>Dispositivo do usuário</td>
+              <td>Até o usuário remover nas configurações</td>
+            </tr>
+            <tr>
+              <td class="label">Textos processados</td>
+              <td class="none">Não armazenado</td>
+              <td class="none">Não aplicável</td>
+            </tr>
+            <tr>
+              <td class="label">Áudios gravados</td>
+              <td class="none">Não armazenado</td>
+              <td class="none">Não aplicável</td>
+            </tr>
+            <tr>
+              <td class="label">Dados de uso e custo</td>
+              <td>Dispositivo do usuário</td>
+              <td>Até o usuário limpar o armazenamento da Extensão (botão disponível nas configurações)</td>
+            </tr>
+            <tr>
+              <td class="label">Cotação PTAX</td>
+              <td>Dispositivo do usuário</td>
+              <td>Renovada automaticamente a cada 12 horas</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 8. DIREITOS DOS TITULARES -->
+      <div class="section">
+        <div class="section-title"><span class="num">8</span> Direitos dos titulares (LGPD)</div>
+
+        <p>
+          Em conformidade com os arts. 17 a 22 da LGPD, os titulares têm direito a acesso, retificação, exclusão,
+          portabilidade e revogação de consentimento sobre seus dados pessoais.
+        </p>
+
+        <div class="callout callout-green">
+          Os dados pessoais tratados são armazenados exclusivamente no dispositivo do próprio usuário. O exercício
+          desses direitos é realizado diretamente pelo usuário através das configurações da Extensão (aba "Uso" →
+          "Limpar Dados de Uso"; aba "Autenticação" → deslogar / remover token) ou do gerenciador de armazenamento
+          do navegador Chrome.
+        </div>
+
+        <p style="margin-top: 12px;">
+          Para dúvidas ou solicitações adicionais, o usuário pode contatar o responsável pelo projeto (ver seção 10).
+        </p>
+      </div>
+
+      <!-- 9. ALTERAÇÕES -->
+      <div class="section">
+        <div class="section-title"><span class="num">9</span> Alterações a esta Política</div>
+
+        <p>
+          Esta Política pode ser atualizada para refletir mudanças na Extensão ou na legislação aplicável.
+          A data de última atualização será sempre indicada no cabeçalho. Alterações relevantes serão comunicadas
+          aos usuários institucionais pelos grupos de desenvolvimento da POC e, eventualmente, por canais internos
+          da DPE/RS.
+        </p>
+      </div>
+
+      <!-- 10. CONTATO -->
+      <div class="section">
+        <div class="section-title"><span class="num">10</span> Responsável e contato</div>
+
+        <div class="contact-block">
+          <div class="contact-label">Desenvolvedor responsável</div>
+          <strong>Felipe Drummond</strong> — Defensor Público / DPE/RS<br>
+          <a href="mailto:felipe-drummond@defensoria.rs.def.br">felipe-drummond@defensoria.rs.def.br</a>
+        </div>
+
+        <div class="callout callout-disclaimer" style="margin-top:14px;">
+          <strong>Isenção de responsabilidade:</strong> A DTI (Diretoria de Tecnologia da Informação) e o
+          desenvolvedor não se responsabilizam pelo uso desta Extensão, nem oferecem suporte técnico oficial.
+          A instalação e uso são voluntários, experimentais e realizados por conta e risco do usuário. Esta é uma
+          ferramenta <strong>não oficial</strong>, desenvolvida de forma independente no âmbito da política
+          institucional de fomento à inovação no serviço público.
+        </div>
+      </div>
+
+      <!-- FOOTER PT -->
+      <div class="footer">
+        <strong>PortalWithLasers - FALA TU</strong> · Extensão experimental para o Portal da DPE/RS<br>
+        Política de Privacidade · Última atualização: 09 de abril de 2026<br>
+        <span>Em conformidade com a Lei nº 13.709/2018 (LGPD)</span>
+      </div>
+
+    </div><!-- /#lang-pt -->
+
+
+    <!-- ══════════════════════════════════════════ -->
+    <!--  ENGLISH VERSION                           -->
+    <!-- ══════════════════════════════════════════ -->
+    <div id="lang-en" class="lang-section">
+
+      <!-- HEADER -->
+      <div class="header" style="margin-top:20px;">
+        <div class="header-logo">PortalWithLasers · FALA TU</div>
+        <div class="header-sub">Browser Extension for the Rio Grande do Sul Public Defender's Office Portal</div>
+        <div class="header-title">Privacy Policy</div>
+        <div class="header-date">Last updated: April 9, 2026</div>
+        <div style="display:flex; gap:6px; flex-wrap:wrap; justify-content:center; margin-top:6px;">
+          <span class="badge badge-orange">Experimental use</span>
+          <span class="badge badge-green">Non-commercial</span>
+          <span class="badge badge-blue">DPE/RS exclusive</span>
+        </div>
+      </div>
+
+      <!-- 1. INTRODUCTION -->
+      <div class="section">
+        <div class="section-title"><span class="num">1</span> Introduction and nature of the project</div>
+
+        <p>
+          <strong>PortalWithLasers - FALA TU</strong> ("the Extension") is an experimental Google Chrome browser
+          extension, developed collaboratively and voluntarily for the
+          <strong>Rio Grande do Sul State Public Defender's Office (DPE/RS)</strong>,
+          for exclusively institutional and non-commercial purposes.
+        </p>
+
+        <div class="callout callout-warn">
+          <strong>Experimental nature (POC):</strong> The Extension is a <strong>proof of concept</strong> designed
+          to explore the use of artificial intelligence for legal text rewriting and attendance transcription tasks
+          within the DPE/RS internal Portal. Features are prototypes under constant development and are not part of
+          the institution's official systems.
+        </div>
+
+        <p>The Extension operates <strong>exclusively</strong>:</p>
+        <ul style="margin: 8px 0 10px 18px; line-height: 1.9; color: var(--text);">
+          <li>Within the DPE/RS internal network (institutional VPN);</li>
+          <li>On the DPE/RS internal domains (<code>*.defpub.local</code>);</li>
+          <li>For use by civil servants, interns, and public defenders affiliated with DPE/RS.</li>
+        </ul>
+
+        <p>
+          This Policy transparently describes which data is processed, how and why, in compliance with the
+          <strong>Brazilian General Data Protection Law (Lei nº 13.709/2018 — LGPD)</strong>.
+        </p>
+      </div>
+
+      <!-- 2. DATA PROCESSED -->
+      <div class="section">
+        <div class="section-title"><span class="num">2</span> What data is processed</div>
+
+        <p>The Extension processes exclusively the data described below. No additional data is collected.</p>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Source</th>
+              <th>Storage</th>
+              <th>Transmission</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="label">User identification data (SSO)</td>
+              <td>Automatically read from the Portal's session endpoint (<code>/api/auth/session</code>) when the user is authenticated in the institutional Portal</td>
+              <td>Name, employee ID, and institutional email are stored temporarily on the user's device (<code>chrome.storage.local</code>) under the key <code>falatu_portal_user</code></td>
+              <td>Sent to the DPE/RS institutional backend (<code>falatu.*.defpub.local</code>) exclusively to obtain a JWT session token. Not transmitted to external third parties.</td>
+            </tr>
+            <tr>
+              <td class="label">JWT session token</td>
+              <td>Generated by the DPE/RS institutional backend after successful SSO authentication</td>
+              <td>User's device (<code>chrome.storage.local</code>), under the key <code>falatu_auth_token</code></td>
+              <td>Sent to the institutional backend (<code>falatu.*.defpub.local</code>) as an authorization credential for AI requests. Never transmitted to external third parties.</td>
+            </tr>
+            <tr>
+              <td class="label">API key (subsidiary mode)</td>
+              <td>Manually entered by the user in settings, only when the direct OpenAI/Azure mode is enabled</td>
+              <td>Only on the user's device (<code>chrome.storage.local</code>)</td>
+              <td>Sent directly to the configured AI provider (OpenAI or Azure) only when the user explicitly opts into direct mode</td>
+            </tr>
+            <tr>
+              <td class="label">Portal field texts</td>
+              <td>Typed by the user in Portal fields</td>
+              <td class="none">Not stored by the Extension</td>
+              <td>Sent to the AI provider when the user triggers rewriting. In standard mode, they travel through the institutional backend (<code>falatu.*.defpub.local</code>); in subsidiary mode, sent directly to the external provider.</td>
+            </tr>
+            <tr>
+              <td class="label">Attendance audio recordings</td>
+              <td>Recorded by the user via microphone</td>
+              <td class="none">Not stored — processed in memory</td>
+              <td>Sent to the AI provider when the user triggers AI transcription. Routing follows the same criteria as text (institutional backend or direct provider, depending on mode).</td>
+            </tr>
+            <tr>
+              <td class="label">Usage and cost data</td>
+              <td>Automatically generated after each operation</td>
+              <td>Only on the user's device (<code>chrome.storage.local</code>)</td>
+              <td class="none">Not transmitted</td>
+            </tr>
+            <tr>
+              <td class="label">PTAX exchange rate (USD/BRL)</td>
+              <td>Brazilian Central Bank public API</td>
+              <td>Only on the user's device, refreshed every 12 hours</td>
+              <td class="none">No personal data sent to the Central Bank</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout callout-green" style="margin-top:14px;">
+          <strong>Important:</strong> Texts and audio recordings are <strong>not stored</strong> by the Extension
+          after processing. What is stored on the user's device is limited to: identification data (temporary),
+          JWT session token, usage/cost data, and the PTAX exchange rate.
+        </div>
+      </div>
+
+      <!-- 3. WHAT THE EXTENSION DOES NOT DO -->
+      <div class="section">
+        <div class="section-title"><span class="num">3</span> What the Extension does not do</div>
+
+        <ul class="not-list">
+          <li><span class="icon">✗</span> <div><strong>Does not collect data for commercial or analytical purposes.</strong> No text, audio, or usage data is transmitted to analytics servers, advertising networks, or unrelated third parties.</div></li>
+          <li><span class="icon">✗</span> <div><strong>Does not use data to train AI models.</strong> No data provided by the user is used for training, improving, or refining AI models by DPE/RS or by the Extension's developer.</div></li>
+          <li><span class="icon">✗</span> <div><strong>Does not operate outside the DPE/RS network.</strong> Scripts are only injected into internal Defender's Office domains (<code>*.defpub.local</code>), accessible only via institutional VPN.</div></li>
+          <li><span class="icon">✗</span> <div><strong>Has no commercial use.</strong> Developed and distributed on a non-profit basis, for exclusively internal DPE/RS use.</div></li>
+          <li><span class="icon">✗</span> <div><strong>Does not collect browsing data or history.</strong> The Extension does not monitor user behavior outside the specific Portal fields where the user explicitly activates a tool.</div></li>
+          <li><span class="icon">✗</span> <div><strong>Does not transmit data to third parties beyond the AI provider in use.</strong> External transmission, when it occurs, is destined exclusively to the DPE/RS institutional backend (standard mode) or the contracted AI provider (subsidiary mode).</div></li>
+        </ul>
+      </div>
+
+      <!-- 4. TRANSMISSION TO AI PROVIDER -->
+      <div class="section">
+        <div class="section-title"><span class="num">4</span> Data transmission to the AI provider</div>
+
+        <p>
+          When the user explicitly triggers a <strong>text rewriting</strong> or <strong>audio transcription</strong>
+          function, the content is sent via HTTPS to the AI provider for processing.
+          The Extension operates in two modes:
+        </p>
+
+        <div class="callout callout-green" style="margin-bottom:12px;">
+          <strong>Standard mode — DPE/RS institutional backend (recommended):</strong> In this mode, all data
+          travels exclusively through the DPE/RS institutional backend (<code>falatu.*.defpub.local</code>),
+          which acts as a LiteLLM proxy. The backend forwards requests to the institution's contracted AI provider
+          and returns the result to the Extension. No data travels directly between the user's device and the
+          AI provider's external API. Authentication is handled via institutional SSO and JWT token.
+        </div>
+
+        <div class="callout callout-blue" style="margin-bottom:12px;">
+          <strong>Subsidiary mode — Direct to external provider (opt-in):</strong> When explicitly configured by
+          the user, the Extension sends data directly to the OpenAI or Azure OpenAI API using an API key provided
+          by the user. This mode is subsidiary and requires manual configuration. Processing performed by each
+          provider is governed by their own terms and privacy policy:<br><br>
+          OpenAI: <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">openai.com/policies/privacy-policy</a>
+          · <a href="https://openai.com/policies/usage-policies" target="_blank" rel="noopener">openai.com/policies/usage-policies</a><br>
+          Azure OpenAI: <a href="https://azure.microsoft.com/en-us/explore/trusted-cloud/privacy" target="_blank" rel="noopener">azure.microsoft.com/en-us/explore/trusted-cloud/privacy</a>
+        </div>
+
+        <div class="callout callout-warn">
+          <strong>Warning — cases subject to judicial confidentiality:</strong> Users are advised to evaluate whether
+          data identifying parties, witnesses, or third parties should be anonymized before submitting content for
+          processing, especially in cases subject to judicial confidentiality orders. Responsibility for the
+          suitability of submitted content rests with the user.
+        </div>
+      </div>
+
+      <!-- 5. LEGAL BASIS -->
+      <div class="section">
+        <div class="section-title"><span class="num">5</span> Legal basis for processing (LGPD)</div>
+
+        <p>Data processing performed by the Extension is based on:</p>
+
+        <table class="data-table" style="margin-top:10px;">
+          <thead>
+            <tr>
+              <th>Legal Basis</th>
+              <th>Provision</th>
+              <th>Application</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="label">Execution of public policies</td>
+              <td>Art. 7, III, LGPD</td>
+              <td>The Extension is an institutional tool of DPE/RS to improve the delivery of free legal aid as a public service.</td>
+            </tr>
+            <tr>
+              <td class="label">Legitimate interest</td>
+              <td>Art. 7, IX, LGPD</td>
+              <td>Local recording of usage and cost data, for transparency and internal audit purposes, without impact on data subjects' rights.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 6. SECURITY -->
+      <div class="section">
+        <div class="section-title"><span class="num">6</span> Security</div>
+
+        <p>The following security measures are in place:</p>
+
+        <ul style="margin: 8px 0 10px 18px; line-height: 2; color: var(--text);">
+          <li>All communication with the institutional backend, external AI providers, and the Central Bank API is conducted over <strong>HTTPS</strong>.</li>
+          <li>In standard mode, text and audio data never leave the DPE/RS internal network toward the internet: the institutional backend (<code>falatu.*.defpub.local</code>) is the only external recipient from the user's device.</li>
+          <li>API keys manually entered by the user (subsidiary mode) are stored in <code>chrome.storage.local</code>, accessible only by the Extension itself on the user's device.</li>
+          <li>The JWT token is stored locally only and sent exclusively to the institutional backend.</li>
+          <li>No data is transmitted without encryption.</li>
+          <li>No text or audio data is retained after processing.</li>
+        </ul>
+      </div>
+
+      <!-- 7. DATA RETENTION -->
+      <div class="section">
+        <div class="section-title"><span class="num">7</span> Data retention</div>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Where stored</th>
+              <th>How long</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="label">Identification data (SSO)</td>
+              <td>User's device</td>
+              <td>Until JWT token expires or the user clears the Extension's storage</td>
+            </tr>
+            <tr>
+              <td class="label">JWT session token</td>
+              <td>User's device</td>
+              <td>Until it expires (per institutional backend policy) or the user logs out</td>
+            </tr>
+            <tr>
+              <td class="label">API key (subsidiary mode)</td>
+              <td>User's device</td>
+              <td>Until the user removes it in settings</td>
+            </tr>
+            <tr>
+              <td class="label">Processed texts</td>
+              <td class="none">Not stored</td>
+              <td class="none">Not applicable</td>
+            </tr>
+            <tr>
+              <td class="label">Audio recordings</td>
+              <td class="none">Not stored</td>
+              <td class="none">Not applicable</td>
+            </tr>
+            <tr>
+              <td class="label">Usage and cost data</td>
+              <td>User's device</td>
+              <td>Until the user clears the Extension's storage (button available in settings)</td>
+            </tr>
+            <tr>
+              <td class="label">PTAX exchange rate</td>
+              <td>User's device</td>
+              <td>Automatically refreshed every 12 hours</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 8. DATA SUBJECT RIGHTS -->
+      <div class="section">
+        <div class="section-title"><span class="num">8</span> Data subject rights (LGPD)</div>
+
+        <p>
+          In compliance with arts. 17 to 22 of the LGPD, data subjects have the right to access, rectification,
+          erasure, portability, and withdrawal of consent regarding their personal data.
+        </p>
+
+        <div class="callout callout-green">
+          Personal data processed is stored exclusively on the user's own device. The exercise of these rights is
+          performed directly by the user through the Extension's settings (tab "Uso" → "Limpar Dados de Uso";
+          tab "Autenticação" → log out / remove token) or through Chrome's storage manager.
+        </div>
+
+        <p style="margin-top: 12px;">
+          For questions or additional requests, users may contact the project maintainer (see section 10).
+        </p>
+      </div>
+
+      <!-- 9. CHANGES -->
+      <div class="section">
+        <div class="section-title"><span class="num">9</span> Changes to this Policy</div>
+
+        <p>
+          This Policy may be updated to reflect changes in the Extension or applicable legislation. The last
+          updated date will always be shown in the header. Significant changes will be communicated to
+          institutional users through the POC development groups and, when appropriate, through DPE/RS
+          internal channels.
+        </p>
+      </div>
+
+      <!-- 10. CONTACT -->
+      <div class="section">
+        <div class="section-title"><span class="num">10</span> Maintainer and contact</div>
+
+        <div class="contact-block">
+          <div class="contact-label">Project maintainer</div>
+          <strong>Felipe Drummond</strong> — Public Defender / DPE/RS<br>
+          <a href="mailto:felipe-drummond@defensoria.rs.def.br">felipe-drummond@defensoria.rs.def.br</a>
+        </div>
+
+        <div class="callout callout-disclaimer" style="margin-top:14px;">
+          <strong>Disclaimer:</strong> The IT Directorate (DTI) and the developer assume no responsibility for
+          the use of this Extension, nor do they provide official technical support. Installation and use are
+          voluntary, experimental, and at the user's own risk. This is an <strong>unofficial</strong> tool,
+          independently developed within the institutional policy fostering innovation in public service.
+        </div>
+      </div>
+
+      <!-- FOOTER EN -->
+      <div class="footer">
+        <strong>PortalWithLasers - FALA TU</strong> · Experimental extension for the DPE/RS Portal<br>
+        Privacy Policy · Last updated: April 9, 2026<br>
+        <span>Pursuant to Brazilian Law nº 13.709/2018 (LGPD)</span>
+      </div>
+
+    </div><!-- /#lang-en -->
 
   </div><!-- /.container -->
+
+  <script>
+    function switchLang(lang) {
+      document.querySelectorAll('.lang-section').forEach(function(el) {
+        el.classList.remove('active');
+      });
+      document.querySelectorAll('.lang-btn').forEach(function(btn) {
+        btn.classList.remove('active');
+      });
+      document.getElementById('lang-' + lang).classList.add('active');
+      event.currentTarget.classList.add('active');
+    }
+  </script>
 </body>
 </html>
